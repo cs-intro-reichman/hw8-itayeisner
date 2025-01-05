@@ -52,12 +52,12 @@
      *  If this user already follows the given name, or if the follows list is full, does nothing and returns false; */
     public boolean addFollowee(String name) {
         if(fCount>=maxfCount){
-            System.out.println("Error: "+ this.name + "follows list is full");
+            //System.out.println("Error: "+ this.name + "follows list is full");
             return false;
         }
         for(int i=0;i<fCount;i++){
             if(follows[i].equals(name)){
-            System.out.println("Error: "+ this.name + " is already follows "+ name);
+            //System.out.println("Error: "+ this.name + " is already follows "+ name);
             return false;
             } 
         }
@@ -71,7 +71,7 @@
         boolean removed = false;
         for(int i=0;i<fCount;i++){
             if(follows[i].equals(name)){
-                System.out.println(name + " removed from "+ this.name + " follows list.");
+                //System.out.println(name + " removed from "+ this.name + " follows list.");
                 removed = true;
             } 
             if(removed&&i<maxfCount-1){
@@ -83,7 +83,7 @@
             follows[--fCount]=null;
         }
         else{
-            System.out.println("Error: "+name+ " is not in "+ this.name + " follows list.");
+            //System.out.println("Error: "+name+ " is not in "+ this.name + " follows list.");
         }
         return removed;
     }
