@@ -44,7 +44,7 @@
     /** If this user follows the given name, returns true; otherwise returns false. */
     public boolean follows(String name) {
         for(int i=0;i<fCount;i++){
-            if(follows[i].equals(name)||follows[i].toLowerCase().equals(name)) return true;
+            if(follows[i].equalsIgnoreCase(name)) return true;
         }
         return false;
     }
@@ -56,7 +56,7 @@
             return false;
         }
         for(int i=0;i<fCount;i++){
-            if(follows[i].equals(name)||follows[i].toLowerCase().equals(name)){
+            if(follows[i].equalsIgnoreCase(name)){
             //System.out.println("Error: "+ this.name + " is already follows "+ name);
             return false;
             } 
@@ -70,7 +70,7 @@
     public boolean removeFollowee(String name) {
         boolean removed = false;
         for(int i=0;i<fCount;i++){
-            if(follows[i].equals(name)){
+            if(follows[i].equalsIgnoreCase(name)){
                 //System.out.println(name + " removed from "+ this.name + " follows list.");
                 removed = true;
             } 
@@ -94,7 +94,7 @@
         int counter = 0; 
         for(int i=0;i<fCount;i++){
             for(int j=0;j<other.getfCount();j++){
-                if(follows[i].equals(other.getfFollows()[j])){
+                if(follows[i].equalsIgnoreCase(other.getfFollows()[j])){
                     counter ++;
                     break;
                 }
@@ -108,13 +108,13 @@
     public boolean isFriendOf(User other) {
         int counter = 0;
         for(int i=0;i<fCount;i++){
-            if(follows[i].equals(other.getName())){
+            if(follows[i].equalsIgnoreCase(other.getName())){
                 counter++;
                 break;
             }
         }
         for(int i=0;i<other.getfCount();i++){
-            if(other.getfFollows()[i].equals(name)){
+            if(other.getfFollows()[i].equalsIgnoreCase(name)){
                 counter++;
                 break;
             }
@@ -131,7 +131,7 @@
      *  return true if other in the list, else return false") */
     public boolean isFollow(User other) {
         for(int i=0;i<fCount;i++){
-            if(follows[i].equals(other.getName())){
+            if(follows[i].equalsIgnoreCase(other.getName())){
                 return true;
             }
         }
