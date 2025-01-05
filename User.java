@@ -56,7 +56,7 @@
             return false;
         }
         for(int i=0;i<fCount;i++){
-            if(follows[i].equalsIgnoreCase(name)){
+            if(follows[i].equalsIgnoreCase(name)||this.getName().equalsIgnoreCase(name)){
             //System.out.println("Error: "+ this.name + " is already follows "+ name);
             return false;
             } 
